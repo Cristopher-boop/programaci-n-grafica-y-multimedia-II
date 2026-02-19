@@ -1,0 +1,44 @@
+.card-grafica {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: filter 0.3s ease; 
+  }
+
+  .controles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+
+    label {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .btn-vintage {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+
+      &.active {
+        background: #d4a373; // Color café/vintage
+        color: #1e1e1e;
+      }
+    }
+  }
+}

@@ -1,13 +1,23 @@
-<div class="card/grafica">
-    <div class="canvas/preview"> 
-        <img [style.filter]="filtroScss()" src="" alt="Imagen Previa">
-        <div class="controles">
-            <label> Brillo : {{brillo()}}</label>
-            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
-            <label> Contraste : {{contraste()}}</label>
-            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
-            <label> Pixel : {{blur()}}</label>
-            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
-        </div>
+<div class="card-grafica">
+  <div class="canvas-preview">
+    <img [style.filter]="filtroScss()" src="https://preview.redd.it/why-do-people-like-angeldust-so-much-v0-xczinsmlahfc1.jpeg?auto=webp&s=4cfa339ff8022bce66fc7dae18b1c18d35f234e8" alt="Imagen Proceso">
+    
+    <div class="controles">
+      <label> Brillo : {{brillo()}}%</label>
+      <input type="range" min="0" max="200" [value]="brillo()" (input)="actualizar('brillo', $event)">
+      
+      <label> Contraste : {{contraste()}}%</label>
+      <input type="range" min="0" max="200" [value]="contraste()" (input)="actualizar('contraste', $event)">
+      
+      <label> Desenfoque : {{blur()}}px</label>
+      <input type="range" min="0" max="20" [value]="blur()" (input)="actualizar('blur', $event)">
+
+      <button 
+        (click)="cambioVintage()" 
+        [class.active]="Vintage()"
+        class="btn-vintage">
+        {{ Vintage() ? 'Quitar Vintage' : 'Modo Vintage' }}
+      </button>
     </div>
+  </div>
 </div>
