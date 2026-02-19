@@ -1,0 +1,28 @@
+<<<<<<< HEAD
+def solucionar():
+    k = int(input("Ingresa K: "))
+
+    plata = (k * (k + 1)) // 2
+
+    n = k // 2
+    oro = n * (n + 1)
+
+    resultado = abs(plata - oro)
+
+    print(f"Resultado: {resultado}")
+
+=======
+def solucionar():
+    k = int(input("Ingresa K: "))
+
+    plata = (k * (k + 1)) // 2
+
+    n = k // 2
+    oro = n * (n + 1)
+
+    resultado = abs(plata - oro)
+
+    print(f"Resultado: {resultado}")
+
+>>>>>>> 2a143af15c9f7123e451ec174c58a9341e2c9150
+solucionar()
