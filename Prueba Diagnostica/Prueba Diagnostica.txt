@@ -1,0 +1,13 @@
+def solucionar():
+    k = int(input("Ingresa K: "))
+
+    plata = (k * (k + 1)) // 2
+
+    n = k // 2
+    oro = n * (n + 1)
+
+    resultado = abs(plata - oro)
+
+    print(f"Resultado: {resultado}")
+
+solucionar()
