@@ -1,0 +1,13 @@
+<div class="card/grafica">
+    <div class="canvas/preview"> 
+        <img [style.filter]="filtroScss()" src="" alt="Imagen Previa">
+        <div class="controles">
+            <label> Brillo : {{brillo()}}</label>
+            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
+            <label> Contraste : {{contraste()}}</label>
+            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
+            <label> Pixel : {{blur()}}</label>
+            <input type="range" min="0" max="200" (input)="actualizar('brillo, $event')">
+        </div>
+    </div>
+</div>
