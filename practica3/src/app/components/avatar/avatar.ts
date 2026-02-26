@@ -8,28 +8,24 @@ import {CommonModule} from '@angular/common';
   templateUrl: './avatar.html',
   styleUrl: './avatar.scss',
 })
-
 export class AvatarComponent {
-  colorFondo = signal<string>('#3498db');
-  tamano = signal<number>(150);
-  tieneLentes = signal<boolean>(false);
-  tieneExpresion = signal<number>(1)
+ colorFondo = signal<string>('#3498db');
+ tamano = signal<number>(150);
+ tieneLentes = signal<boolean>(false);
+ tipoExpresion = signal<number>(1);
 
-  cambiarColor(event: Event) {
+  cambiarColor(event: Event){
     const input = event.target as HTMLInputElement;
     this.colorFondo.set(input.value);
   }
-
-  cambiarTamano(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.tamano.set(parseInt(input.value));
-  }
-
-  toggleLentes(){
+ cambiarTamano(event: Event){
+   const input = event.target as HTMLInputElement;
+   this.tamano.set(parseInt(input.value));
+ }
+ toggleLentes(){
     this.tieneLentes.update(flag => !flag);
-  }
-
-  setExpresion(tipo: number){
-    this.tieneExpresion.set(tipo);
-  }
+ }
+ setExpresion(tipo: number){
+    this.tipoExpresion.set(tipo);
+ }
 }

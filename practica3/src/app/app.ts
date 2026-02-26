@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AvatarComponent } from './components/avatar/avatar';
+import {AvatarComponent} from './components/avatar/avatar';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import { AvatarComponent } from './components/avatar/avatar';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-
 export class App {
-  title = "clase Grafica"
+ title = "clase Gráfica"
 }
