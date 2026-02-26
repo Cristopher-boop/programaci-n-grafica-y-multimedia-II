@@ -1,43 +1,56 @@
-<div class="container">
-  <h2>Avatar</h2>
-  <div class="canvas-avatar">
-    <div class="cuerpo"
-         [style.background-color]="colorFondo()"
-         [style.width.px]="tamano()"
-         [style.height.px]="tamano()">
+<div class="contenedor-principal">
+  <h2 class="titulo-oscuro">Avatar</h2>
 
-      <div class="ojos">
-        <div class="ojo"></div>
-        <div class="ojo"></div>
+  <div class="zona-input">
+    <input type="text" [value]="etiquetaIdentidad()" (input)="actualizarIdentidad($event)" placeholder="Nombra al pibe...">
+  </div>
+
+  <div class="area-visual">
+    <div class="cuerpo-avatar" [class.efecto-rocola]="modoRocola()" [style.background-color]="colorFondo()" [style.width.px]="tamano()" [style.height.px]="tamano()">
+
+      <div class="ojos-sector">
+        <div class="ojo-unidad"></div>
+        <div class="ojo-unidad"></div>
         @if (tieneLentes()){
-          <div class="lentes"></div>
+          <div class="lente"></div>
         }
       </div>
-      <div class="boca">
+
+      <div class="zona-gesticular">
         @switch (tipoExpresion()){
-          @case (1) {<div class="feliz"></div>}
-          @case (2) {<div class="sorprendido"></div>}
-          @case (3) {<div class="serio"></div>}
+          @case (1) {<div class="gesto-alegre"></div>}
+          @case (2) {<div class="gesto-shook"></div>}
+          @case (3) {<div class="gesto-plano"></div>}
         }
-        </div>
+      </div>
+    </div>
+    
+    <div class="reflejo-nombre">
+      {{ etiquetaIdentidad() }}
     </div>
   </div>
-<div class="controles">
-  <label color>
-     <input type="color" [value]="colorFondo()" (input)="cambiarColor($event)" >
-  </label>
 
-  <label Tamaño>
-    <input type="range" min="100" max="300" [value]="tamano()" (input)="cambiarTamano($event)" >
-  </label>
-  <button (click)="toggleLentes()">
-  {{tieneLentes()? 'Quitar lentes' : 'Poner lentes'}} (Boolean)
-  </button>
-  <div class="expresiones">
-   <p> Expresión </p>
-    <button (click)="setExpresion(1)">feliz</button>
-    <button (click)="setExpresion(2)">sorprendido</button>
-    <button (click)="setExpresion(3)">serio</button>
+  <div class="panel-ajustes">
+    <div class="control-item">
+       <input type="color" [value]="colorFondo()" (input)="cambiarColor($event)">
+    </div>
+
+    <div class="control-item">
+      <input type="range" min="100" max="300" [value]="tamano()" (input)="cambiarTamano($event)">
+    </div>
+
+    <button class="btn-accion" (click)="toggleLentes()">
+      {{ tieneLentes() ? 'Quitar tapa ojos' : 'Poner tapa ojos' }}
+    </button>
+    
+    <button class="btn-accion" (click)="toggleGiro()">
+      {{ modoRocola() ? 'Parar Rocola' : 'Modo Rocola' }}
+    </button>
+
+    <div class="selector-animo">
+      <button (click)="setExpresion(1)">Felih</button>
+      <button (click)="setExpresion(2)">Asombrao</button>
+      <button (click)="setExpresion(3)">Enojao</button>
+    </div>
   </div>
-</div >
-</div>
+</div> 

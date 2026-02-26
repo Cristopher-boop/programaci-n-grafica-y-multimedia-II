@@ -1,67 +1,117 @@
-.container {
+.contenedor-principal {
+  background-color: #0a0a0a; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Segoe UI', sans-serif;
+  color: #e0e0e0;
+  padding: 40px;
+  font-family: 'Courier New', Courier, monospace; 
 
-  .canvas-avatar {
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .titulo-oscuro {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+  }
 
-    .cuerpo {
-      border-radius: 50%;
-      position: relative;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-
-      .ojos {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 30%;
-
-        .ojo {
-          width: 20%;
-          height: 20%;
-          background: white;
-          border-radius: 50%;
-          border: 2px solid black;
-        }
-
-        .lentes {
-          position: absolute;
-          top: 35%;
-          width: 90%;
-          height: 15%;
-          border: 3px solid #333;
-          left: 5%;
-          background: rgba(255,255,255,0.2);
-        }
-      }
-
-      .boca {
-        position: absolute;
-        bottom: 20%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        .feliz { width: 40%; height: 20px; border-bottom: 5px solid black; border-radius: 50%; }
-        .sorprendido { width: 20px; height: 20px; border: 4px solid black; border-radius: 50%; }
-        .serio { width: 30%; height: 5px; background: black; }
-      }
+  .zona-input {
+    margin-bottom: 20px;
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #444;
+      color: #00ffcc;
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 5px;
+      outline: none;
+      transition: border-color 0.4s;
+      &:focus { border-color: #00ffcc; }
     }
   }
 
-  .controles {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 12px;
-    display: grid;
-    gap: 15px;
+  .area-visual {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    label, p { font-weight: bold; font-size: 14px; }
-    button { cursor: pointer; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+    .cuerpo-avatar {
+      border-radius: 40% 60% 60% 40% / 50%; 
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+
+      &.efecto-rocola {
+        animation: rotacion-suave 6s linear infinite;
+      }
+
+      .ojos-sector {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 25%;
+        .ojo-unidad {
+          width: 15px; height: 15px; background: #000; border-radius: 50%;
+        }
+        .cristales {
+          position: absolute; top: 30%; width: 100%; height: 10px;
+          border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a;
+          background: rgba(0, 255, 204, 0.1);
+        }
+      }
+
+      .zona-gesticular {
+        position: absolute; bottom: 25%; width: 100%; display: flex; justify-content: center;
+        .gesto-alegre { width: 30%; height: 10px; border-bottom: 3px solid #000; border-radius: 50%; }
+        .gesto-shook { width: 15px; height: 15px; border: 2px solid #000; border-radius: 50%; }
+        .gesto-plano { width: 25%; height: 2px; background: #000; }
+      }
+    }
+
+    .reflejo-nombre {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #888;
+      font-style: italic;
+    }
+  }
+
+  .panel-ajustes {
+    background: #151515;
+    padding: 30px;
+    border-radius: 4px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #222;
+
+    input[type="range"] { accent-color: #444; }
+    
+    .btn-accion, .selector-animo button {
+      background: #1a1a1a;
+      color: #aaa;
+      border: 1px solid #333;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover { background: #222; color: #fff; border-color: #555; }
+    }
+
+    .selector-animo {
+      display: flex;
+      gap: 10px;
+      button { font-size: 0.8rem; }
+    }
+  }
+}
+
+@keyframes rotacion-suave {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
