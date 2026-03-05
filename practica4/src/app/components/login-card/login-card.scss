@@ -1,0 +1,10 @@
+.login-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10; /* Por encima del fondo */
+  pointer-events: none; /* Deja pasar los clics al fondo 360 */
+  overflow: hidden;
+}
