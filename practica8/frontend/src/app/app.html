@@ -1,0 +1,25 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Directorio de Usuarios Externos</h1>
+    
+    @if (mensajeBackend) {
+      <div class="server-badge">
+        <span class="badge-icon">✓</span>
+        {{ mensajeBackend }}
+      </div>
+    }
+  </header>
+
+  <main class="users-grid">
+    @for (user of users; track user.id) {
+      <app-user-card [user]="user"></app-user-card>
+    } @empty {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Conectando con el servidor Django...</p>
+      </div>
+    }
+  </main>
+</div>
+
+<router-outlet />

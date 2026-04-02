@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    <div class="avatar">{{ user.name.charAt(0) }}</div>
+    <div class="header-info">
+      <h3 class="name">{{ user.name }}</h3>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <div class="info-row">
+      <span class="icon">📧</span>
+      <span class="text">{{ user.email }}</span>
+    </div>
+    <div class="info-row">
+      <span class="icon">🏢</span>
+      <span class="text">{{ user.company.name }}</span>
+    </div>
+  </div>
+</div>
